@@ -53,7 +53,7 @@ public class AuthenticationService {
         // send email validation;
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) throws MessagingException {
+    public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) {
         var auth = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         authenticationRequest.getEmail(), authenticationRequest.getPassword()

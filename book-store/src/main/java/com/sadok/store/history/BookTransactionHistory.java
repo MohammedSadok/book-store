@@ -1,0 +1,30 @@
+package com.sadok.store.history;
+
+import com.sadok.store.book.Book;
+import com.sadok.store.common.BaseEntity;
+import com.sadok.store.user.User;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+
+@Getter
+@Setter
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class BookTransactionHistory extends BaseEntity {
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    @ManyToOne
+    @JoinColumn(name = "book_id")
+    private Book book;
+    private boolean returned;
+    private boolean returnApproved;
+}
